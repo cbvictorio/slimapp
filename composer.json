@@ -1,0 +1,11 @@
+{
+    "name": "cesar/slim-framework-example",
+    "description": "this is an example using php with slim framework",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "slim/slim": "4.3.0",
+        "slim/psr7": "dev-master"
+    }
+}
