@@ -20,4 +20,27 @@
             return $races;      
         }
 
+        public static function findById($id) {
+            $db = new db();
+            $db = $db->connect();
+            $find_race_statement = $db->prepare(FIND_RACE_BY_ID_QRY);
+            $find_race_statement->execute([$id]);
+            $race = $find_race_statement->fetchAll(PDO::FETCH_OBJ);
+            return $race;
+        }
+
+        public static function findMostFamous() {
+            $db = new db();
+            $db = $db->connect();
+            $find_race_statement = $db->query(FIND_MOST_FAMOUS_RACE_QRY);
+            $race_found = $find_race_statement->fetchAll(PDO::FETCH_OBJ);
+            if (empty($race_found)) {
+                return new stdClass();
+            }
+            $race = $race_found[0];
+            $id = $race->races_id;
+            $mostFamousRace = self::findById($id);
+            return $mostFamousRace;
+        }
+
     }

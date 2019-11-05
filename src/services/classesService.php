@@ -19,4 +19,13 @@
 
             return $classes;
         }
+
+        public static function findById($id) {
+            $db = new db();
+            $db = $db->connect();
+            $find_class_statement = $db->prepare(FIND_CLASS_BY_ID_QRY);
+            $find_class_statement->execute([$id]);
+            $class = $find_class_statement->fetchAll(PDO::FETCH_OBJ);
+            return $class;
+        }
     }

@@ -31,6 +31,9 @@
     // Last names controller
     require __DIR__ . '/../src/controllers/lastNamesController.php';
 
+    // Weapons controller
+    require __DIR__ . '/../src/controllers/weaponController.php';
+
     // Require a custom response object
     require __DIR__ . '/../src/utils/CustomResponse.php';
 
