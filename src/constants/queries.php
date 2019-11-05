@@ -32,7 +32,9 @@
                     races_id, 
                     COUNT(heroes.first_name) mycount 
                 FROM 
-                    heroes 
+                    heroes
+                WHERE
+                    heroes.deleted = 0 
                 GROUP BY 
                     races_id 
                 ORDER BY 
@@ -121,7 +123,9 @@
                 first_name, 
                 COUNT(heroes.first_name) mycount 
             FROM 
-                heroes 
+                heroes
+            WHERE
+                heroes.deleted = 0 
             GROUP BY 
                 first_name 
             ORDER BY 
@@ -150,10 +154,12 @@
         "FIND_MOST_FAMOUS_WEAPON_QRY", 
         "
             SELECT 
-                heroes.weapon_id, 
+                heroes.weapon_id,
                 COUNT(heroes.weapon_id) mycount 
             FROM 
-                heroes 
+                heroes
+            WHERE
+                heroes.deleted = 0
             GROUP BY 
                 weapon_id 
             ORDER BY 
